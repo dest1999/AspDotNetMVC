@@ -9,8 +9,7 @@ namespace WPFMultiThread
     Павел, возник вопрос: вроде всё работает, но очень быстро выедает память, серьёзная нагрузка на проц, ГУИ подтормаживает.
     При закрытии приложения поток вычислений выгружается не сразу, а через некоторое время.
     Что можно сделать для улучшения?
-     
-     */
+    */
     public partial class MainWindow : Window
     {
         private bool interruptToken = false;
@@ -21,7 +20,6 @@ namespace WPFMultiThread
             Thread fibThread = new(FibonacciNumberAddToTextBlock);
             
             fibThread.Start();
-
         }
 
 
