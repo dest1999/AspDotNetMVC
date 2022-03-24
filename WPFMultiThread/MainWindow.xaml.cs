@@ -5,9 +5,12 @@ using System.Windows.Threading;
 
 namespace WPFMultiThread
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /*
+    Павел, возник вопрос: вроде всё работает, но очень быстро выедает память, серьёзная нагрузка на проц, ГУИ подтормаживает.
+    При закрытии приложения поток вычислений выгружается не сразу, а через некоторое время.
+    Что можно сделать для улучшения?
+     
+     */
     public partial class MainWindow : Window
     {
         private bool interruptToken = false;
@@ -15,14 +18,14 @@ namespace WPFMultiThread
         {
             InitializeComponent();
 
-            Thread fibThread = new(FibonacciNumberAdd);
+            Thread fibThread = new(FibonacciNumberAddToTextBlock);
             
             fibThread.Start();
 
         }
 
 
-        private void FibonacciNumberAdd()
+        private void FibonacciNumberAddToTextBlock()
         {
             int a = 0;
             int b = 1;
@@ -44,8 +47,8 @@ namespace WPFMultiThread
             return currentFibNumber;
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
+        private void OnWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {//прекращаем поток при закрытии окна
             interruptToken = true;
         }
     }
