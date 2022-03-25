@@ -14,7 +14,7 @@ namespace WPFMultiThread
     public partial class MainWindow : Window
     {
         private bool interruptToken = false;
-        private int timeout = 0;
+        private int numbersInSecond = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -27,14 +27,21 @@ namespace WPFMultiThread
 
         private void FibonacciNumberAddToTextBlock()
         {
-            int a = 0;
-            int b = 1;
+            ulong a = 0;
+            ulong b = 1;
+            string tmpStr;
+
             while (!interruptToken)
             {
-                if(timeout > 0)
+                if(numbersInSecond > 0)
                 {
-                    Thread.Sleep(timeout * 1000);
-                    string tmpStr = FibonacciCalculate(ref a, ref b).ToString();
+                    Thread.Sleep(1000 / numbersInSecond);
+                    tmpStr = FibonacciCalculate(ref a, ref b).ToString();
+                    if (string.IsNullOrEmpty(tmpStr))
+                    {
+                        interruptToken = true;
+                        break;
+                    }
                     textBlock.Dispatcher.BeginInvoke(DispatcherPriority.Background , new Action(() =>
                     {
                         textBlock.Inlines.Add(tmpStr + "\n");
@@ -42,15 +49,19 @@ namespace WPFMultiThread
                 }
                 else
                 {
-                    Thread.Sleep(100);
+                    Thread.Sleep(500);
                 }
             }
         }
 
-        private int FibonacciCalculate(ref int a, ref int b)
+        private ulong? FibonacciCalculate(ref ulong a, ref ulong b)
         {
-            int currentFibNumber = a + b;
+            ulong currentFibNumber = a + b;
             a = b;
+            if (currentFibNumber < b)
+            {
+                return null;
+            }
             b = currentFibNumber;
             return currentFibNumber;
         }
@@ -62,7 +73,7 @@ namespace WPFMultiThread
 
         private void slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {//слайдер задержки, при значении 0 не вычисляем
-            timeout = (int)slider.Value;
+            numbersInSecond = (int)slider.Value;
         }
     }
 }
