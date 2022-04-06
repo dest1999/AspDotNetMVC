@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsMultiThread", "WinFormsMultiThread\WinFormsMultiThread.csproj", "{66BB07B8-300D-474D-95DE-09A1282F3A6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsMultiThread", "WinFormsMultiThread\WinFormsMultiThread.csproj", "{66BB07B8-300D-474D-95DE-09A1282F3A6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructuralPatterns", "StructuralPatterns\StructuralPatterns.csproj", "{24872350-F572-4470-AC61-80970297EB75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{66BB07B8-300D-474D-95DE-09A1282F3A6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66BB07B8-300D-474D-95DE-09A1282F3A6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66BB07B8-300D-474D-95DE-09A1282F3A6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24872350-F572-4470-AC61-80970297EB75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24872350-F572-4470-AC61-80970297EB75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24872350-F572-4470-AC61-80970297EB75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24872350-F572-4470-AC61-80970297EB75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
