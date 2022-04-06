@@ -23,6 +23,23 @@ namespace ICommandPattern
         public MainWindow()
         {
             InitializeComponent();
+            RunMethod();
         }
+
+        private void RunMethod()
+        {
+            Storage.Add(CommandFirstClass.Create());
+            Storage.Add(CommandSecondClass.Create());
+            Storage.Add(CommandFirstClass.Create());
+            Storage.Add(CommandSecondClass.Create());
+            Storage.Add(CommandFirstClass.Create());
+            Storage.Add(CommandSecondClass.Create());
+            Storage.Add(CommandFirstClass.Create());
+            Storage.Add(CommandSecondClass.Create());
+            Storage.GetById(1).Execute("signal string");
+            Storage.GetById(5).Execute("signal string");
+
+        }
+
     }
 }
