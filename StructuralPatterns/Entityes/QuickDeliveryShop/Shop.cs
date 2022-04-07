@@ -24,10 +24,4 @@ internal class Shop
     }
 
     public static List<Product> GetAll() => products.Select(p => p.Value).ToList();
-
-
-
-
-
-
 }

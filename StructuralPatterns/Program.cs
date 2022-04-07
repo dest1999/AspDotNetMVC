@@ -10,17 +10,12 @@ Shop.ChangeQuantity("butter", -40);
 Store.Add(Furniture.Create("sofa", 100500));
 Store.Add(Furniture.Create("slab", 234));
 
-var products = new List<CommonProduct>();
+HiTechStore.Add(HiTechPart.CreatePart(PartType.PCPart, "Intel Processor", 2000));
+HiTechStore.Add(HiTechPart.CreatePart(PartType.LANPart, "Broadcom WIFI", 150, "AC-support"));
 
-foreach (var item in Shop.GetAll())
-{
-    products.Add(Combiner.Convert(item));
-}
-
-foreach (var item in Store.GetAll())
-{
-    products.Add(Combiner.Convert(item));
-}
+IEnumerable<CommonProduct> products = Combiner.Convert(Shop.GetAll());
+products = products.Concat(Combiner.Convert(Store.GetAll()));
+products = products.Concat(Combiner.Convert(HiTechStore.GetParts()));
 
 foreach (var item in products)
 {
