@@ -14,7 +14,7 @@ namespace Scanner
         public int RAMLoad { get; private set; }
 
         private readonly Random random = new();
-        private static readonly ScannerEmulator? instance = null;
+        private static ScannerEmulator? instance = null;
         private ScannerEmulator()
         {
         }
@@ -26,7 +26,8 @@ namespace Scanner
             {
                 return instance;
             }
-            return new ScannerEmulator();
+            instance = new ScannerEmulator();
+            return instance;
         }
 
         public byte[] GetSequence(string source)
