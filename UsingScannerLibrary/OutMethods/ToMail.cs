@@ -9,7 +9,7 @@ namespace UsingScannerLibrary;
 
 public class ToMail : IScanOutputFormat
 {
-    public void ScanTo(IScanner scanner, string destination)
+    public void ScanTo(IScanner scanner, string source, string destination)
     {
         throw new NotImplementedException();
     }

@@ -9,6 +9,6 @@ namespace UsingScannerLibrary
 {
     public interface IScanOutputFormat
     {
-        void ScanTo(IScanner scanner, string destination);
+        void ScanTo(IScanner scanner, string source, string destination);
     }
 }

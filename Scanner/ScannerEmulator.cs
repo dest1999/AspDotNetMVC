@@ -12,6 +12,7 @@ namespace Scanner
         public int CPULoad { get; private set; }
 
         public int RAMLoad { get; private set; }
+        public int BytesExported { get; private set; }
 
         private readonly Random random = new();
         private static ScannerEmulator? instance = null;
@@ -38,6 +39,7 @@ namespace Scanner
             using var fileStream = File.OpenRead(source);
             using var reader = new BinaryReader(fileStream);
             var buffer = reader.ReadBytes((int)fileStream.Length);
+            BytesExported = buffer.Length;
 
             return buffer;
         }

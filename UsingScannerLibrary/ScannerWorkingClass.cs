@@ -17,18 +17,13 @@ public class ScannerWorkingClass
         outputFormat = scanOutput;
     }
 
-    public void Scan(string output)
+    public void Scan(string source, string output)
     {
         if (string.IsNullOrWhiteSpace(output))
         {
             throw new ArgumentException("output not selected");
         }
 
-        outputFormat.ScanTo(scanner, output);
-
-
-
+        outputFormat.ScanTo(scanner, source, output);
     }
-
-
 }

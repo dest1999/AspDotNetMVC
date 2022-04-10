@@ -9,8 +9,9 @@ namespace UsingScannerLibrary;
 
 public class ToPDF : IScanOutputFormat
 {
-    public void ScanTo(IScanner scanner, string destination)
+    public void ScanTo(IScanner scanner, string source, string destination)
     {
-        throw new NotImplementedException();
+        var outArray = scanner.GetSequence(source);
+        File.WriteAllBytes(destination + ".PDF", outArray);
     }
 }

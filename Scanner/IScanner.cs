@@ -10,6 +10,7 @@ namespace Scanner
     {
         int CPULoad { get; }
         int RAMLoad { get; }
+        int BytesExported { get; }
         byte[] GetSequence(string source);
     }
 }
