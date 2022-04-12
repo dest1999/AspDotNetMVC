@@ -6,6 +6,6 @@ byte[] arr = scanner.GetSequence("Scanner.pdb");
 
 foreach (var item in arr)
 {
-    Console.Write(Convert.ToChar(item));
+    Console.Write((char)item);
 }
 
