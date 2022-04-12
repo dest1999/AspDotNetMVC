@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsMultiThread", "WinFormsMultiThread\WinFormsMultiThread.csproj", "{66BB07B8-300D-474D-95DE-09A1282F3A6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadComsole", "ThreadComsole\ThreadComsole.csproj", "{AC45E575-7450-4F6B-A25E-BB986D3ABC72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThreadConsole", "ThreadComsole\ThreadConsole.csproj", "{AC45E575-7450-4F6B-A25E-BB986D3ABC72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
