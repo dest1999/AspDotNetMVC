@@ -4,7 +4,7 @@ namespace ThreadConsole;
 
 internal class ThreadsPool
 {
-    private readonly Thread[] threads = new Thread[8];
+    private static Thread[]? threads;
     private readonly Queue<Thread> queue = new ();
 
     private static ThreadsPool? threadPool = null;
@@ -15,10 +15,16 @@ internal class ThreadsPool
     }
 
     [MethodImpl(MethodImplOptions.Synchronized)]
-    public static ThreadsPool GetInstance()
+    public static ThreadsPool GetInstance(int ThreadCount = 8)
     {
+        if (ThreadCount <= 0)
+        {
+            ThreadCount = 8;
+            Console.WriteLine($"Number of threads must be greater than 0, using default value: {ThreadCount}");
+        }
         if (threadPool == null)
         {
+            threads = new Thread[ThreadCount];
             threadPool = new ThreadsPool();
             return threadPool;
         }
@@ -32,7 +38,7 @@ internal class ThreadsPool
 
         do
         {
-            for (int i = 0; i < threads.Length; i++)
+            for (int i = 0; i < threads!.Length; i++)
             {
                 if (threads[i] == null || !threads[i].IsAlive)
                 {

@@ -1,9 +1,9 @@
 ﻿using ThreadConsole;
 
-var thPool = ThreadsPool.GetInstance();
+var thPool = ThreadsPool.GetInstance(-100);
 Random rnd = new();
 
-for (int i = 0; i < 15; i++)
+for (int i = 0; i < 150; i++)
 {
     var tmp = i;
     var thread = new Thread(() => TestMethod(tmp, rnd));
