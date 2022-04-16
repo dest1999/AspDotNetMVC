@@ -2,7 +2,7 @@
 
 namespace UsingScannerLibrary;
 
-public class ScannerWorkingClass
+public class ScannerWorkingClass : IScannerWorking
 {
     private IScanner scanner;
     private IScanOutputFormat outputFormat;
@@ -11,7 +11,10 @@ public class ScannerWorkingClass
     {
         scanner = Scanner;
     }
+    public ScannerWorkingClass()
+    {
 
+    }
     public void OutputMethodSelector(IScanOutputFormat scanOutput)
     {
         outputFormat = scanOutput;
@@ -25,5 +28,10 @@ public class ScannerWorkingClass
         }
 
         outputFormat.ScanTo(scanner, source, output);
+    }
+
+    public void SelectScannerDevice(IScanner Scanner)
+    {
+        scanner = Scanner;
     }
 }
